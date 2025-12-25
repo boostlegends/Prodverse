@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { AudioPlayerProvider } from "./contexts/AudioPlayerContext";
+import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -265,7 +267,10 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider>
-          {children}
+          <AudioPlayerProvider>
+            {children}
+            <AudioPlayer />
+          </AudioPlayerProvider>
         </ThemeProvider>
       </body>
     </html>

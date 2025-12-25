@@ -13,8 +13,10 @@ import {
   Sparkles,
   Mic,
   MicOff,
-  Check
+  Check,
+  ListPlus
 } from 'lucide-react'
+import { useAudioPlayer } from '@/app/contexts/AudioPlayerContext'
 
 interface Song {
   id: string
@@ -33,6 +35,9 @@ interface GenerationResult {
 }
 
 export default function MusicGenerator() {
+  // Global audio player
+  const { play, pause, currentTrack, isPlaying, addToQueue } = useAudioPlayer()
+
   // Form state
   const [customMode, setCustomMode] = useState(false)
   const [prompt, setPrompt] = useState('')
@@ -49,9 +54,30 @@ export default function MusicGenerator() {
   const [error, setError] = useState<string | null>(null)
   const [pollCount, setPollCount] = useState(0)
 
-  // Audio playback
-  const [playingIndex, setPlayingIndex] = useState<number | null>(null)
-  const [audioElements, setAudioElements] = useState<HTMLAudioElement[]>([])
+  // Save songs to database
+  const saveSongsToDb = useCallback(async (songs: Song[], taskId: string, songStyle?: string, songPrompt?: string) => {
+    for (const song of songs) {
+      try {
+        await fetch('/api/songs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: song.title,
+            audioUrl: song.audioUrl,
+            streamUrl: song.streamUrl,
+            imageUrl: song.imageUrl,
+            duration: song.duration,
+            style: songStyle,
+            prompt: songPrompt,
+            taskId: taskId,
+            sunoId: song.id,
+          }),
+        })
+      } catch (err) {
+        console.error('Failed to save song:', err)
+      }
+    }
+  }, [])
 
   // Poll for results
   const pollForResults = useCallback(async (id: string) => {
@@ -69,6 +95,10 @@ export default function MusicGenerator() {
 
         if (data.status === 'completed' || data.status === 'failed') {
           setIsGenerating(false)
+          // Auto-save completed songs to database
+          if (data.status === 'completed' && data.songs?.length > 0) {
+            saveSongsToDb(data.songs, id, style || prompt, prompt)
+          }
           return true // Stop polling
         }
       }
@@ -77,7 +107,7 @@ export default function MusicGenerator() {
       console.error('Poll error:', err)
       return false
     }
-  }, [])
+  }, [saveSongsToDb, style, prompt])
 
   useEffect(() => {
     if (!taskId || !isGenerating) return
@@ -152,29 +182,37 @@ export default function MusicGenerator() {
     }
   }
 
-  const togglePlay = (index: number, url: string) => {
-    if (playingIndex === index) {
-      audioElements[index]?.pause()
-      setPlayingIndex(null)
+  const handlePlay = (song: Song) => {
+    const isCurrentSong = currentTrack?.id === song.id
+    if (isCurrentSong && isPlaying) {
+      pause()
     } else {
-      // Pause any currently playing
-      audioElements.forEach(audio => audio?.pause())
-
-      // Create or get audio element
-      let audio = audioElements[index]
-      if (!audio) {
-        audio = new Audio(url)
-        const newElements = [...audioElements]
-        newElements[index] = audio
-        setAudioElements(newElements)
-      }
-
-      audio.play()
-      setPlayingIndex(index)
-
-      audio.onended = () => setPlayingIndex(null)
+      play({
+        id: song.id,
+        title: song.title,
+        audioUrl: song.audioUrl,
+        streamUrl: song.streamUrl,
+        imageUrl: song.imageUrl,
+        duration: song.duration,
+        artist: 'Suno AI'
+      })
     }
   }
+
+  const handleAddToQueue = (song: Song) => {
+    addToQueue({
+      id: song.id,
+      title: song.title,
+      audioUrl: song.audioUrl,
+      streamUrl: song.streamUrl,
+      imageUrl: song.imageUrl,
+      duration: song.duration,
+      artist: 'Suno AI'
+    })
+  }
+
+  const isCurrentlyPlaying = (song: Song) =>
+    currentTrack?.id === song.id && isPlaying
 
   const downloadSong = (song: Song, index: number) => {
     const link = document.createElement('a')
@@ -191,9 +229,6 @@ export default function MusicGenerator() {
     setResult(null)
     setError(null)
     setPollCount(0)
-    audioElements.forEach(audio => audio?.pause())
-    setAudioElements([])
-    setPlayingIndex(null)
   }
 
   return (
@@ -404,10 +439,10 @@ export default function MusicGenerator() {
                     <div className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3 flex-1 min-w-0">
                         <button
-                          onClick={() => togglePlay(index, song.streamUrl || song.audioUrl)}
+                          onClick={() => handlePlay(song)}
                           className="p-3 rounded-full bg-[var(--accent)] text-black hover:scale-105 transition-transform"
                         >
-                          {playingIndex === index ? (
+                          {isCurrentlyPlaying(song) ? (
                             <Pause className="w-5 h-5" />
                           ) : (
                             <Play className="w-5 h-5 ml-0.5" />
@@ -422,13 +457,22 @@ export default function MusicGenerator() {
                           </p>
                         </div>
                       </div>
-                      <button
-                        onClick={() => downloadSong(song, index)}
-                        className="p-2 rounded-lg hover:bg-[var(--accent)]/20 transition-colors"
-                        title="Download"
-                      >
-                        <Download className="w-5 h-5 text-[var(--accent)]" />
-                      </button>
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => handleAddToQueue(song)}
+                          className="p-2 rounded-lg hover:bg-[var(--accent)]/20 transition-colors"
+                          title="Add to Queue"
+                        >
+                          <ListPlus className="w-5 h-5 text-[var(--accent)]" />
+                        </button>
+                        <button
+                          onClick={() => downloadSong(song, index)}
+                          className="p-2 rounded-lg hover:bg-[var(--accent)]/20 transition-colors"
+                          title="Download"
+                        >
+                          <Download className="w-5 h-5 text-[var(--accent)]" />
+                        </button>
+                      </div>
                     </div>
                   </motion.div>
                 ))}

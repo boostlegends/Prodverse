@@ -26,7 +26,8 @@ import {
   Layers,
   MessageSquare,
   Sun,
-  Moon
+  Moon,
+  Library
 } from 'lucide-react'
 import { useTheme } from './components/ThemeProvider'
 
@@ -80,6 +81,10 @@ export default function LandingPage() {
               <a href="/studio" className="text-[var(--accent)] font-medium hover:opacity-80 transition flex items-center gap-1">
                 <Sparkles className="w-4 h-4" />
                 AI Studio
+              </a>
+              <a href="/library" className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] transition flex items-center gap-1">
+                <Library className="w-4 h-4" />
+                Library
               </a>
 
               {/* Theme Toggle */}
@@ -670,7 +675,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 border-t border-[var(--card-border)]">
+      <footer className="py-12 pb-28 px-4 border-t border-[var(--card-border)]">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, Music2, Sparkles } from 'lucide-react'
+import { ArrowLeft, Music2, Sparkles, Library } from 'lucide-react'
 import MusicGenerator from '../components/MusicGenerator'
 
 export default function StudioPage() {
@@ -22,16 +22,25 @@ export default function StudioPage() {
               </div>
             </Link>
 
-            <div className="flex items-center gap-2 text-sm text-[var(--foreground-secondary)]">
-              <Sparkles className="w-4 h-4 text-[var(--accent)]" />
-              AI Studio
+            <div className="flex items-center gap-4">
+              <Link
+                href="/library"
+                className="flex items-center gap-2 text-sm text-[var(--foreground-secondary)] hover:text-[var(--foreground)] transition"
+              >
+                <Library className="w-4 h-4" />
+                Library
+              </Link>
+              <div className="flex items-center gap-2 text-sm text-[var(--foreground-secondary)]">
+                <Sparkles className="w-4 h-4 text-[var(--accent)]" />
+                AI Studio
+              </div>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Content */}
-      <div className="pt-24 pb-16 px-4">
+      <div className="pt-24 pb-28 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
