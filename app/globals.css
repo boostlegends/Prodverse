@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+/* Dark mode (default) */
+:root {
+  --background: #0F160C;
+  --background-secondary: #1A261B;
+  --foreground: #e7e9ea;
+  --foreground-secondary: #9ca3af;
+  --accent: #7FD149;
+  --accent-secondary: #76C449;
+  --accent-bright: #00ff02;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(0, 0, 0, 0.3);
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode */
+:root.light {
+  --background: #f8faf5;
+  --background-secondary: #ffffff;
+  --foreground: #1a1a1a;
+  --foreground-secondary: #52525b;
+  --accent: #5fa832;
+  --accent-secondary: #4d8a29;
+  --accent-bright: #3d7a1f;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(95, 168, 50, 0.2);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --input-bg: rgba(255, 255, 255, 1);
+  --input-border: rgba(95, 168, 50, 0.3);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #7FD149 0%, #76C449 50%, #00ff02 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-green {
+  box-shadow: 0 0 60px rgba(127, 209, 73, 0.3);
+}
+
+.glow-bright {
+  box-shadow: 0 0 60px rgba(0, 255, 2, 0.2);
+}
+
+/* Animated background gradient */
+.animated-gradient {
+  background: linear-gradient(-45deg, var(--background), var(--background-secondary), var(--background-secondary), var(--background));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+:root.light .animated-gradient {
+  background: linear-gradient(-45deg, #f0f5eb, #e8f0e0, #f5f9f2, #f0f5eb);
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse ring */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(127, 209, 73, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127, 209, 73, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+:root.light .grid-bg {
+  background-image:
+    linear-gradient(rgba(95, 168, 50, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 168, 50, 0.08) 1px, transparent 1px);
+}
+
+/* Light mode specific overrides */
+:root.light .glow-green {
+  box-shadow: 0 0 60px rgba(95, 168, 50, 0.2);
+}
+
+:root.light .glow-bright {
+  box-shadow: 0 0 60px rgba(61, 122, 31, 0.15);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle:hover svg {
+  color: var(--background);
+}
+
+/* Card styles for theme */
+.theme-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+}
+
+.theme-card:hover {
+  border-color: var(--accent);
+}
+
+/* Input styles for theme */
+.theme-input {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--foreground);
+}
+
+.theme-input:focus {
+  border-color: var(--accent);
+}
+
+.theme-input::placeholder {
+  color: var(--foreground-secondary);
+}
+
+/* Nav background */
+.theme-nav {
+  background: var(--nav-bg);
+}
+
+/* Text colors */
+.text-theme {
+  color: var(--foreground);
+}
+
+.text-theme-secondary {
+  color: var(--foreground-secondary);
+}
+
+/* Hero Visual Section - Dark mode */
+.hero-visual-bg {
+  background: linear-gradient(135deg, rgba(127, 209, 73, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
+}
+
+.hero-visual-card {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-player-bg {
+  background: linear-gradient(90deg, rgba(127, 209, 73, 0.2) 0%, rgba(34, 197, 94, 0.15) 100%);
+}
+
+.hero-progress-bg {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Visual Section - Light mode */
+:root.light .hero-visual-bg {
+  background: linear-gradient(135deg, rgba(95, 168, 50, 0.15) 0%, rgba(77, 138, 41, 0.1) 100%);
+}
+
+:root.light .hero-visual-card {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+:root.light .hero-player-bg {
+  background: linear-gradient(90deg, rgba(95, 168, 50, 0.15) 0%, rgba(77, 138, 41, 0.1) 100%);
+}
+
+:root.light .hero-progress-bg {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode gradient text adjustment */
+:root.light .gradient-text {
+  background: linear-gradient(135deg, #5fa832 0%, #4d8a29 50%, #3d7a1f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Light mode card enhancements */
+:root.light .theme-card {
+  box-shadow: 0 2px 15px rgba(95, 168, 50, 0.08);
+}
+
+:root.light .theme-card:hover {
+  box-shadow: 0 4px 25px rgba(95, 168, 50, 0.15);
+}
+
+/* Light mode background blurs */
+:root.light .backdrop-blur-xl {
+  backdrop-filter: blur(20px);
+}
+
+/* Light mode lime/green button adjustments */
+:root.light .bg-lime-600 {
+  background-color: #5fa832;
+}
+
+:root.light .bg-lime-600:hover {
+  background-color: #4d8a29;
+}
+
+:root.light .from-lime-600 {
+  --tw-gradient-from: #5fa832;
+}
+
+:root.light .to-green-600 {
+  --tw-gradient-to: #4d8a29;
+}

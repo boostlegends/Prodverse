@@ -1,0 +1,46 @@
+{
+  "name": "Prodverse - AI-Powered Music Creation Platform",
+  "short_name": "Prodverse",
+  "description": "Create, collaborate, and share your music with AI-powered tools. Generate beats, create music videos, and earn from your creations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F160C",
+  "theme_color": "#7FD149",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["music", "entertainment", "productivity"],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Create Music",
+      "short_name": "Create",
+      "description": "Generate music with AI",
+      "url": "/#ai",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Collaborate",
+      "short_name": "Collab",
+      "description": "Work with artists worldwide",
+      "url": "/#collaborate",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

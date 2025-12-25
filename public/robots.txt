@@ -1,0 +1,13 @@
+# Prodverse Robots.txt
+# Primary: https://prodverse.co
+# Alternate: https://prodverse.net
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://prodverse.co/sitemap.xml
+Sitemap: https://prodverse.net/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
