@@ -34,14 +34,30 @@ export default function LandingPage() {
   const [email, setEmail] = useState('')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const { theme, toggleTheme } = useTheme()
 
-  const handleWaitlist = (e: React.FormEvent) => {
+  const handleWaitlist = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Connect to your backend/Supabase
-    console.log('Waitlist email:', email)
-    setIsSubmitted(true)
-    setEmail('')
+    if (isSubmitting) return
+
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        setEmail('')
+      }
+    } catch (error) {
+      console.error('Waitlist error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
