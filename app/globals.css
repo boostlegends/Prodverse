@@ -18,18 +18,18 @@
 
 /* Light mode */
 :root.light {
-  --background: #f8faf5;
-  --background-secondary: #ffffff;
-  --foreground: #1a1a1a;
-  --foreground-secondary: #52525b;
-  --accent: #5fa832;
-  --accent-secondary: #4d8a29;
-  --accent-bright: #3d7a1f;
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --card-border: rgba(95, 168, 50, 0.2);
-  --nav-bg: rgba(255, 255, 255, 0.9);
+  --background: #FFFFFF;
+  --background-secondary: #F8FDF8;
+  --foreground: #0A0F0A;
+  --foreground-secondary: #666666;
+  --accent: #55D73E;
+  --accent-secondary: #45C72E;
+  --accent-bright: #3CB82A;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(85, 215, 62, 0.2);
+  --nav-bg: rgba(255, 255, 255, 0.95);
   --input-bg: rgba(255, 255, 255, 1);
-  --input-border: rgba(95, 168, 50, 0.3);
+  --input-border: rgba(85, 215, 62, 0.3);
 }
 
 @theme inline {
@@ -130,17 +130,17 @@ body {
 
 :root.light .grid-bg {
   background-image:
-    linear-gradient(rgba(95, 168, 50, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(95, 168, 50, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(85, 215, 62, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(85, 215, 62, 0.08) 1px, transparent 1px);
 }
 
 /* Light mode specific overrides */
 :root.light .glow-green {
-  box-shadow: 0 0 60px rgba(95, 168, 50, 0.2);
+  box-shadow: 0 0 60px rgba(85, 215, 62, 0.2);
 }
 
 :root.light .glow-bright {
-  box-shadow: 0 0 60px rgba(61, 122, 31, 0.15);
+  box-shadow: 0 0 60px rgba(60, 184, 42, 0.15);
 }
 
 /* Theme toggle button */
@@ -226,16 +226,16 @@ body {
 
 /* Hero Visual Section - Light mode */
 :root.light .hero-visual-bg {
-  background: linear-gradient(135deg, rgba(95, 168, 50, 0.15) 0%, rgba(77, 138, 41, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(85, 215, 62, 0.15) 0%, rgba(60, 184, 42, 0.1) 100%);
 }
 
 :root.light .hero-visual-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 :root.light .hero-player-bg {
-  background: linear-gradient(90deg, rgba(95, 168, 50, 0.15) 0%, rgba(77, 138, 41, 0.1) 100%);
+  background: linear-gradient(90deg, rgba(85, 215, 62, 0.15) 0%, rgba(60, 184, 42, 0.1) 100%);
 }
 
 :root.light .hero-progress-bg {
@@ -244,7 +244,7 @@ body {
 
 /* Light mode gradient text adjustment */
 :root.light .gradient-text {
-  background: linear-gradient(135deg, #5fa832 0%, #4d8a29 50%, #3d7a1f 100%);
+  background: linear-gradient(135deg, #55D73E 0%, #45C72E 50%, #3CB82A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -252,11 +252,11 @@ body {
 
 /* Light mode card enhancements */
 :root.light .theme-card {
-  box-shadow: 0 2px 15px rgba(95, 168, 50, 0.08);
+  box-shadow: 0 2px 15px rgba(85, 215, 62, 0.08);
 }
 
 :root.light .theme-card:hover {
-  box-shadow: 0 4px 25px rgba(95, 168, 50, 0.15);
+  box-shadow: 0 4px 25px rgba(85, 215, 62, 0.15);
 }
 
 /* Light mode background blurs */
@@ -266,17 +266,54 @@ body {
 
 /* Light mode lime/green button adjustments */
 :root.light .bg-lime-600 {
-  background-color: #5fa832;
+  background-color: #55D73E;
 }
 
-:root.light .bg-lime-600:hover {
-  background-color: #4d8a29;
+:root.light .bg-lime-600:hover,
+:root.light .bg-lime-700 {
+  background-color: #45C72E;
 }
 
 :root.light .from-lime-600 {
-  --tw-gradient-from: #5fa832;
+  --tw-gradient-from: #55D73E;
 }
 
 :root.light .to-green-600 {
-  --tw-gradient-to: #4d8a29;
+  --tw-gradient-to: #45C72E;
+}
+
+/* Light mode text color overrides for lime classes */
+:root.light .text-lime-400,
+:root.light .text-lime-300 {
+  color: #55D73E;
+}
+
+:root.light .text-green-400,
+:root.light .text-green-300 {
+  color: #55D73E;
+}
+
+/* Light mode background color overrides */
+:root.light .bg-lime-500\/10,
+:root.light .bg-green-500\/10 {
+  background-color: rgba(85, 215, 62, 0.1);
+}
+
+:root.light .bg-lime-500\/20,
+:root.light .bg-green-500\/20 {
+  background-color: rgba(85, 215, 62, 0.2);
+}
+
+/* Light mode border color overrides */
+:root.light .border-lime-500\/30,
+:root.light .border-green-500\/30 {
+  border-color: rgba(85, 215, 62, 0.3);
+}
+
+:root.light .border-lime-500\/50 {
+  border-color: rgba(85, 215, 62, 0.5);
+}
+
+:root.light .border-lime-500 {
+  border-color: #55D73E;
 }

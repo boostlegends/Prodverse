@@ -105,7 +105,7 @@ export default function LandingPage() {
                 )}
               </button>
 
-              <button className="px-4 py-2 rounded-lg bg-lime-600 hover:bg-lime-700 transition font-medium text-white">
+              <button className="px-4 py-2 rounded-lg bg-[#55D73E] hover:bg-[#45C72E] transition font-medium text-black">
                 Join Waitlist
               </button>
             </div>
@@ -146,7 +146,7 @@ export default function LandingPage() {
               <a href="#ai" className="block text-theme-secondary hover:text-theme">AI Tools</a>
               <a href="#collaborate" className="block text-theme-secondary hover:text-theme">Collaborate</a>
               <a href="#pricing" className="block text-theme-secondary hover:text-theme">Pricing</a>
-              <button className="w-full px-4 py-2 rounded-lg bg-lime-600 hover:bg-lime-700 transition font-medium text-white">
+              <button className="w-full px-4 py-2 rounded-lg bg-[#55D73E] hover:bg-[#45C72E] transition font-medium text-black">
                 Join Waitlist
               </button>
             </div>
@@ -157,8 +157,8 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-lime-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-500/20 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#55D73E]/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#55D73E]/20 rounded-full blur-3xl" />
 
         <div className="max-w-7xl mx-auto text-center relative">
           <motion.div
@@ -166,9 +166,9 @@ export default function LandingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-lime-500/10 border border-lime-500/30 mb-8">
-              <Sparkles className="w-4 h-4 text-lime-400 mr-2" />
-              <span className="text-sm text-lime-300">AI-Powered Music Creation Platform</span>
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#55D73E]/10 border border-[#55D73E]/30 mb-8">
+              <Sparkles className="w-4 h-4 text-[#55D73E] mr-2" />
+              <span className="text-sm text-[#55D73E]">AI-Powered Music Creation Platform</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -189,12 +189,12 @@ export default function LandingPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="px-6 py-4 rounded-xl theme-input focus:outline-none focus:ring-2 focus:ring-lime-500/20 w-full sm:w-80"
+                  className="px-6 py-4 rounded-xl theme-input focus:outline-none focus:ring-2 focus:ring-[#55D73E]/20 w-full sm:w-80"
                   required
                 />
                 <button
                   type="submit"
-                  className="px-8 py-4 rounded-xl bg-gradient-to-r from-lime-600 to-green-600 hover:from-lime-700 hover:to-green-700 transition font-semibold flex items-center justify-center gap-2 group"
+                  className="px-8 py-4 rounded-xl bg-[#55D73E] hover:bg-[#45C72E] transition font-semibold flex items-center justify-center gap-2 group text-black"
                 >
                   {isSubmitted ? (
                     <>
@@ -252,7 +252,7 @@ export default function LandingPage() {
                       />
                       <span className="text-xs font-bold font-logo tracking-tight">
                         <span className="text-[#55D73E]">Prod</span>
-                        <span className="text-white">verse</span>
+                        <span className="text-[var(--foreground)]">verse</span>
                         <span className="text-theme-secondary text-[10px] font-normal ml-1 font-sans">Studio</span>
                       </span>
                     </div>
@@ -400,7 +400,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group p-6 rounded-2xl theme-card hover:border-lime-500/50 transition-all duration-300"
+                className="group p-6 rounded-2xl theme-card hover:border-[#55D73E]/50 transition-all duration-300"
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition`}>
                   <feature.icon className="w-7 h-7 text-white" />
@@ -415,7 +415,7 @@ export default function LandingPage() {
 
       {/* AI Section */}
       <section id="ai" className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-lime-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#55D73E]/10 to-transparent" />
 
         <div className="max-w-7xl mx-auto relative">
           <motion.div
@@ -424,9 +424,9 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 mb-6">
-              <Zap className="w-4 h-4 text-green-400 mr-2" />
-              <span className="text-sm text-green-300">Powered by Advanced AI</span>
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#55D73E]/10 border border-[#55D73E]/30 mb-6">
+              <Zap className="w-4 h-4 text-[#55D73E] mr-2" />
+              <span className="text-sm text-[#55D73E]">Powered by Advanced AI</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Create with <span className="gradient-text">AI Magic</span>
@@ -465,9 +465,9 @@ export default function LandingPage() {
                 transition={{ delay: index * 0.2 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-500/20 to-green-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative p-8 rounded-2xl theme-card hover:border-lime-500/50 transition h-full">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-lime-600 to-green-600 flex items-center justify-center mb-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#55D73E]/20 to-[#3CB82A]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative p-8 rounded-2xl theme-card hover:border-[#55D73E]/50 transition h-full">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#55D73E] to-[#3CB82A] flex items-center justify-center mb-6">
                     <tool.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">{tool.title}</h3>
@@ -475,7 +475,7 @@ export default function LandingPage() {
                   <ul className="space-y-2">
                     {tool.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-theme-secondary">
-                        <Check className="w-4 h-4 text-lime-400" />
+                        <Check className="w-4 h-4 text-[#55D73E]" />
                         {feature}
                       </li>
                     ))}
@@ -526,8 +526,8 @@ export default function LandingPage() {
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-lime-500/20 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-5 h-5 text-lime-400" />
+                    <div className="w-10 h-10 rounded-lg bg-[#55D73E]/20 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-5 h-5 text-[#55D73E]" />
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">{item.title}</h4>
@@ -544,15 +544,15 @@ export default function LandingPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-lime-500/30 to-green-500/30 rounded-3xl blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#55D73E]/30 to-[#3CB82A]/30 rounded-3xl blur-3xl" />
               <div className="relative theme-card backdrop-blur-xl rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
                   <h4 className="font-semibold">Summer Vibes EP</h4>
-                  <span className="px-3 py-1 rounded-full bg-lime-500/20 text-lime-400 text-sm">Active</span>
+                  <span className="px-3 py-1 rounded-full bg-[#55D73E]/20 text-[#55D73E] text-sm">Active</span>
                 </div>
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-lime-500 to-green-500" />
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#55D73E] to-[#3CB82A]" />
                     <div className="flex-1">
                       <div className="font-medium">@melodicmike</div>
                       <div className="text-sm text-theme-secondary">Producer • 40%</div>
@@ -585,7 +585,7 @@ export default function LandingPage() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-20 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-lime-900/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#55D73E]/5 to-transparent" />
 
         <div className="max-w-7xl mx-auto relative">
           <motion.div
@@ -658,12 +658,12 @@ export default function LandingPage() {
                 transition={{ delay: index * 0.1 }}
                 className={`relative rounded-2xl p-8 ${
                   plan.highlight
-                    ? 'bg-gradient-to-br from-lime-900/50 to-green-900/50 border-2 border-lime-500'
+                    ? 'bg-gradient-to-br from-[#55D73E]/20 to-[#3CB82A]/20 border-2 border-[#55D73E]'
                     : 'theme-card'
                 }`}
               >
                 {plan.highlight && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-lime-500 to-green-500 text-sm font-medium text-black">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#55D73E] text-sm font-medium text-black">
                     Most Popular
                   </div>
                 )}
@@ -676,7 +676,7 @@ export default function LandingPage() {
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <Check className="w-5 h-5 text-lime-400" />
+                      <Check className="w-5 h-5 text-[#55D73E]" />
                       <span className="text-theme-secondary">{feature}</span>
                     </li>
                   ))}
@@ -684,7 +684,7 @@ export default function LandingPage() {
                 <button
                   className={`w-full py-3 rounded-xl font-semibold transition ${
                     plan.highlight
-                      ? 'bg-gradient-to-r from-lime-600 to-green-600 hover:from-lime-700 hover:to-green-700 text-white'
+                      ? 'bg-[#55D73E] hover:bg-[#45C72E] text-black'
                       : 'bg-[var(--card-bg)] hover:bg-[var(--accent)] hover:text-[var(--background)]'
                   }`}
                 >
@@ -705,7 +705,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-lime-500/20 to-green-500/20 rounded-3xl blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#55D73E]/20 to-[#3CB82A]/20 rounded-3xl blur-3xl" />
             <div className="relative theme-card backdrop-blur-xl rounded-3xl p-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Ready to <span className="gradient-text">Start Creating?</span>
@@ -724,7 +724,7 @@ export default function LandingPage() {
                 />
                 <button
                   type="submit"
-                  className="px-8 py-4 rounded-xl bg-gradient-to-r from-lime-600 to-green-600 hover:from-lime-700 hover:to-green-700 transition font-semibold whitespace-nowrap"
+                  className="px-8 py-4 rounded-xl bg-[#55D73E] hover:bg-[#45C72E] transition font-semibold whitespace-nowrap text-black"
                 >
                   Join Waitlist
                 </button>
