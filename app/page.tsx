@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   Music,
+  Music2,
   Video,
   Users,
   Sparkles,
@@ -27,7 +28,8 @@ import {
   MessageSquare,
   Sun,
   Moon,
-  Library
+  Library,
+  Download
 } from 'lucide-react'
 import { useTheme } from './components/ThemeProvider'
 
@@ -67,9 +69,12 @@ export default function LandingPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md theme-nav border-b border-[var(--card-border)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-2">
-              <Image src="/logo.png" alt="Prodverse" width={40} height={40} className="rounded-xl" />
-              <span className="text-xl font-bold gradient-text">Prodverse</span>
+            <div className="flex items-center gap-0.5">
+              <Image src="/logo-512.png" alt="Prodverse" width={44} height={44} className="rounded-md" priority unoptimized />
+              <span className="text-base font-bold font-logo tracking-tight">
+                <span className="text-[#55D73E]">Prod</span>
+                <span className="text-[var(--foreground)]">verse</span>
+              </span>
             </div>
 
             {/* Desktop Menu */}
@@ -231,45 +236,100 @@ export default function LandingPage() {
             className="mt-20 relative"
           >
             <div className="relative rounded-2xl overflow-hidden border border-[var(--card-border)] glow-green">
-              <div className="hero-visual-bg backdrop-blur-xl p-8">
-                {/* Mock App Interface */}
-                <div className="hero-visual-card rounded-xl p-6">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-lime-500 to-green-500" />
-                    <div>
-                      <div className="font-semibold">@producer_vibes</div>
-                      <div className="text-sm text-theme-secondary">Just dropped a new beat</div>
+              <div className="hero-visual-bg backdrop-blur-xl p-6 md:p-8">
+                {/* Studio Interface Preview */}
+                <div className="hero-visual-card rounded-xl overflow-hidden">
+                  {/* Header Bar */}
+                  <div className="flex items-center justify-between px-5 py-3 border-b border-white/10">
+                    <div className="flex items-center gap-0.5">
+                      <Image
+                        src="/logo-512.png"
+                        alt="Prodverse"
+                        width={36}
+                        height={36}
+                        className="rounded-md"
+                        unoptimized
+                      />
+                      <span className="text-xs font-bold font-logo tracking-tight">
+                        <span className="text-[#55D73E]">Prod</span>
+                        <span className="text-white">verse</span>
+                        <span className="text-theme-secondary text-[10px] font-normal ml-1 font-sans">Studio</span>
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-green-500/80" />
                     </div>
                   </div>
-                  <div className="hero-player-bg rounded-lg p-4 mb-4">
-                    <div className="flex items-center gap-4">
-                      <button className="w-12 h-12 rounded-full bg-lime-600 flex items-center justify-center hover:bg-lime-700 transition">
-                        <Play className="w-6 h-6 fill-white" />
-                      </button>
-                      <div className="flex-1">
-                        <div className="h-2 hero-progress-bg rounded-full overflow-hidden">
-                          <div className="h-full w-1/3 bg-gradient-to-r from-lime-500 to-green-500 rounded-full" />
+
+                  {/* Main Content */}
+                  <div className="p-5 md:p-6">
+                    {/* Now Playing Track */}
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden bg-gradient-to-br from-[#1a3a1a] via-[#0d2818] to-[#0a1f0a] border border-[#55D73E]/30 flex items-center justify-center flex-shrink-0 relative">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(85,215,62,0.3),transparent_50%)]" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(60,184,42,0.2),transparent_50%)]" />
+                        <div className="absolute bottom-1.5 left-1.5 right-1.5 h-3 flex items-end gap-[2px]">
+                          {[40, 70, 50, 90, 60, 80, 45, 75, 55, 85].map((h, i) => (
+                            <div key={i} className="flex-1 bg-[#55D73E]/70 rounded-sm" style={{ height: `${h}%` }} />
+                          ))}
                         </div>
-                        <div className="flex justify-between mt-1 text-xs text-theme-secondary">
-                          <span>1:23</span>
-                          <span>3:45</span>
+                        <Music2 className="w-8 h-8 text-[#55D73E] z-10" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="px-2 py-0.5 text-xs font-medium bg-[#55D73E]/20 text-[#55D73E] rounded-full">AI Generated</span>
+                        </div>
+                        <h3 className="font-bold text-lg md:text-xl truncate">Midnight Dreams</h3>
+                        <p className="text-theme-secondary text-sm">Lo-fi Hip Hop • Chill Beats</p>
+                      </div>
+                    </div>
+
+                    {/* Waveform Visualization */}
+                    <div className="hero-player-bg rounded-xl p-4 mb-5">
+                      <div className="flex items-end justify-center gap-[3px] h-12 mb-3">
+                        {[20, 45, 30, 60, 40, 75, 55, 85, 65, 50, 70, 45, 80, 55, 40, 65, 50, 70, 45, 60, 35, 55, 75, 45, 65, 50, 40, 60, 35, 50, 30, 45].map((height, i) => (
+                          <div
+                            key={i}
+                            className={`w-1.5 md:w-2 rounded-full transition-all ${i < 12 ? 'bg-gradient-to-t from-[#55D73E] to-[#6FE55A]' : 'bg-white/20'}`}
+                            style={{ height: `${height}%` }}
+                          />
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <button className="w-12 h-12 rounded-full bg-[#55D73E] hover:bg-[#3CB82A] flex items-center justify-center hover:scale-105 transition-all shadow-lg shadow-[#55D73E]/25">
+                          <Play className="w-5 h-5 text-black ml-0.5" />
+                        </button>
+                        <div className="flex-1">
+                          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                            <div className="h-full w-[37%] bg-gradient-to-r from-[#55D73E] to-[#6FE55A] rounded-full" />
+                          </div>
+                          <div className="flex justify-between mt-1.5 text-xs text-theme-secondary">
+                            <span>1:23</span>
+                            <span>3:45</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-6 text-theme-secondary">
-                    <button className="flex items-center gap-2 hover:text-lime-500 transition">
-                      <Headphones className="w-5 h-5" />
-                      <span>2.4K</span>
-                    </button>
-                    <button className="flex items-center gap-2 hover:text-green-500 transition">
-                      <MessageSquare className="w-5 h-5" />
-                      <span>156</span>
-                    </button>
-                    <button className="flex items-center gap-2 hover:text-emerald-500 transition">
-                      <Share2 className="w-5 h-5" />
-                      <span>Share</span>
-                    </button>
+
+                    {/* Action Bar */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4 text-theme-secondary">
+                        <button className="flex items-center gap-2 hover:text-[#55D73E] transition">
+                          <Headphones className="w-5 h-5" />
+                          <span className="text-sm font-medium">2.4K</span>
+                        </button>
+                        <button className="flex items-center gap-2 hover:text-[#55D73E] transition">
+                          <Share2 className="w-5 h-5" />
+                          <span className="text-sm font-medium">Share</span>
+                        </button>
+                      </div>
+                      <button className="px-4 py-2 rounded-lg bg-[#55D73E]/20 text-[#55D73E] text-sm font-medium hover:bg-[#55D73E]/30 transition flex items-center gap-2">
+                        <Download className="w-4 h-4" />
+                        Download
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -680,8 +740,11 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Image src="/logo.png" alt="Prodverse" width={40} height={40} className="rounded-xl" />
-                <span className="text-xl font-bold gradient-text">Prodverse</span>
+                <Image src="/logo-512.png" alt="Prodverse" width={40} height={40} className="rounded-xl" />
+                <span className="text-xl font-extrabold font-logo">
+                  <span className="text-[#55D73E]">Prod</span>
+                  <span className="text-[var(--foreground)]">verse</span>
+                </span>
               </div>
               <p className="text-theme-secondary">
                 The AI-powered platform for music creators to share, collaborate, and earn.

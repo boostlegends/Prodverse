@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { AudioPlayerProvider } from "./contexts/AudioPlayerContext";
@@ -11,11 +11,18 @@ const inter = Inter({
   display: "swap",
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#7FD149",
+  themeColor: "#55D73E",
 };
 
 export const metadata: Metadata = {
@@ -76,11 +83,12 @@ export const metadata: Metadata = {
   // Icons
   icons: {
     icon: [
-      { url: "/logo.png", sizes: "32x32", type: "image/png" },
-      { url: "/logo.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: "/logo.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/logo.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon-48.png",
   },
 
   // Manifest
@@ -168,7 +176,7 @@ const jsonLd = {
     "@type": "Organization",
     name: "Prodverse",
     url: "https://prodverse.co",
-    logo: "https://prodverse.co/logo.png",
+    logo: "https://prodverse.co/logo-512.png",
     sameAs: [
       "https://prodverse.net",
       "https://twitter.com/prodverse",
@@ -192,7 +200,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Prodverse",
   url: "https://prodverse.co",
-  logo: "https://prodverse.co/logo.png",
+  logo: "https://prodverse.co/logo-512.png",
   description:
     "AI-powered music creation platform for producers and artists.",
   foundingDate: "2024",
@@ -265,7 +273,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
         <ThemeProvider>
           <AudioPlayerProvider>
             {children}

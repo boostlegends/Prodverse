@@ -46,6 +46,12 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Logo font */
+.font-logo {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
