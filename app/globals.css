@@ -224,6 +224,27 @@ body {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Hero Track Art - Dark mode */
+.hero-track-art {
+  background: linear-gradient(135deg, #1a3a1a 0%, #0d2818 50%, #0a1f0a 100%);
+}
+
+.hero-track-glow-1 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(85, 215, 62, 0.3), transparent 50%);
+}
+
+.hero-track-glow-2 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 80%, rgba(60, 184, 42, 0.2), transparent 50%);
+}
+
+.hero-track-bar {
+  background-color: rgba(85, 215, 62, 0.7);
+}
+
 /* Hero Visual Section - Light mode */
 :root.light .hero-visual-bg {
   background: linear-gradient(135deg, rgba(85, 215, 62, 0.15) 0%, rgba(60, 184, 42, 0.1) 100%);
@@ -240,6 +261,24 @@ body {
 
 :root.light .hero-progress-bg {
   background: rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Track Art - Light mode */
+:root.light .hero-track-art {
+  background: linear-gradient(135deg, #f0fdf0 0%, #e8f8e8 50%, #dcf4dc 100%);
+  border-color: rgba(85, 215, 62, 0.4) !important;
+}
+
+:root.light .hero-track-glow-1 {
+  background: radial-gradient(circle at 30% 20%, rgba(85, 215, 62, 0.15), transparent 50%);
+}
+
+:root.light .hero-track-glow-2 {
+  background: radial-gradient(circle at 70% 80%, rgba(60, 184, 42, 0.1), transparent 50%);
+}
+
+:root.light .hero-track-bar {
+  background-color: rgba(85, 215, 62, 0.5);
 }
 
 /* Light mode gradient text adjustment */

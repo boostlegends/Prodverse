@@ -267,12 +267,12 @@ export default function LandingPage() {
                   <div className="p-5 md:p-6">
                     {/* Now Playing Track */}
                     <div className="flex items-start gap-4 mb-6">
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden bg-gradient-to-br from-[#1a3a1a] via-[#0d2818] to-[#0a1f0a] border border-[#55D73E]/30 flex items-center justify-center flex-shrink-0 relative">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(85,215,62,0.3),transparent_50%)]" />
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(60,184,42,0.2),transparent_50%)]" />
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden hero-track-art border border-[#55D73E]/30 flex items-center justify-center flex-shrink-0 relative">
+                        <div className="hero-track-glow-1" />
+                        <div className="hero-track-glow-2" />
                         <div className="absolute bottom-1.5 left-1.5 right-1.5 h-3 flex items-end gap-[2px]">
                           {[40, 70, 50, 90, 60, 80, 45, 75, 55, 85].map((h, i) => (
-                            <div key={i} className="flex-1 bg-[#55D73E]/70 rounded-sm" style={{ height: `${h}%` }} />
+                            <div key={i} className="flex-1 hero-track-bar rounded-sm" style={{ height: `${h}%` }} />
                           ))}
                         </div>
                         <Music2 className="w-8 h-8 text-[#55D73E] z-10" />
