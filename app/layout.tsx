@@ -203,7 +203,7 @@ const organizationJsonLd = {
   logo: "https://prodverse.co/logo-512.png",
   description:
     "AI-powered music creation platform for producers and artists.",
-  foundingDate: "2024",
+  foundingDate: "2020",
   sameAs: [
     "https://prodverse.net",
     "https://twitter.com/prodverse",
@@ -212,7 +212,7 @@ const organizationJsonLd = {
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    email: "hello@prodverse.co",
+    email: "contact@prodverse.net",
     contactType: "customer service",
   },
 };

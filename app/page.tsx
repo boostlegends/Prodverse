@@ -764,10 +764,10 @@ export default function LandingPage() {
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-theme-secondary">
-                <li><a href="#" className="hover:text-theme transition">About</a></li>
+                <li><a href="/about" className="hover:text-theme transition">About</a></li>
                 <li><a href="#" className="hover:text-theme transition">Blog</a></li>
                 <li><a href="#" className="hover:text-theme transition">Careers</a></li>
-                <li><a href="#" className="hover:text-theme transition">Contact</a></li>
+                <li><a href="mailto:contact@prodverse.net" className="hover:text-theme transition">Contact</a></li>
               </ul>
             </div>
 
